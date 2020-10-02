@@ -1,18 +1,18 @@
 import React, { Component } from 'react'
 import { Menu, Segment } from 'semantic-ui-react'
 import authService from "../../services/authService";
-import { Button } from 'semantic-ui-react'
-
+import './Menu.css'
+import AddPP from './AddPP'
+  
 export default class MenuEl extends Component {
   state = { activeItem: 'home', user: authService.getUser()}
 
-  onClickProf = (e) => {
-    console.log('clicked')
-  }
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
   render() {
     const { activeItem } = this.state
 
+    
+    
     return (
       <div>
         <Menu pointing secondary>
@@ -32,13 +32,7 @@ export default class MenuEl extends Component {
             onClick={this.handleItemClick}
           />
         </Menu>
-
-        <Segment>
-          <img src={this.state.user.profilePic} />
-          <form action={this.onClickProf()}>
-            <Button type="submit" >Add profile picture </Button>
-          </form>
-        </Segment>
+        <AddPP user={this.state.user} />
       </div>
     )
   }
