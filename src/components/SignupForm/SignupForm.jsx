@@ -8,6 +8,7 @@ class SignupForm extends Component {
     email: "",
     password: "",
     passwordConf: "",
+    isTutor: false
   };
 
   handleChange = (e) => {
@@ -36,7 +37,7 @@ class SignupForm extends Component {
   }
 
   render() {
-    const { name, email, password, passwordConf } = this.state;
+    const { name, email, password, passwordConf, isTutor } = this.state;
     return (
       <div>
         <h3>Sign Up</h3>
@@ -77,8 +78,12 @@ class SignupForm extends Component {
             onChange={this.handleChange}
           />
           <label htmlFor="confirm">Confirm Password</label>
+          <br></br>
+          <label htmlFor="isTutor">Are you a tutor?</label>
+            <input value={true} onChange={this.handleChange} type="checkbox" id="isTutor" name="isTutor"></input>
+          <br></br>
           <button disabled={this.isFormInvalid()}>Sign Up</button>
-          &nbsp;&nbsp;
+          <br></br>
           <Link to="/">Cancel</Link>
         </form>
       </div>
