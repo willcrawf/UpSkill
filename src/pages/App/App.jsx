@@ -5,6 +5,7 @@ import Signup from "../Signup/Signup";
 import Login from "../Login/Login";
 import authService from "../../services/authService";
 import Users from "../Users/Users";
+import Profile from "../../pages/Profile/Profile"
 import "./App.css";
 
 class App extends Component {
@@ -52,6 +53,15 @@ class App extends Component {
             <Login
               history={history}
               handleSignupOrLogin={this.handleSignupOrLogin}
+            />
+          )}
+        />
+        <Route
+          exact
+          path="/profile"
+          render={({ history }) => (
+            <Profile
+              history={history}
             />
           )}
         />
