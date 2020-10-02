@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { Menu, Segment } from 'semantic-ui-react'
+import authService from "../../services/authService";
 
 export default class MenuEl extends Component {
-  state = { activeItem: 'home' }
+  state = { activeItem: 'home', user: authService.getUser()}
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
@@ -13,7 +14,7 @@ export default class MenuEl extends Component {
       <div>
         <Menu pointing secondary>
           <Menu.Item
-            name='home'
+            name='profile'
             active={activeItem === 'home'}
             onClick={this.handleItemClick}
           />
@@ -23,21 +24,14 @@ export default class MenuEl extends Component {
             onClick={this.handleItemClick}
           />
           <Menu.Item
-            name='friends'
-            active={activeItem === 'friends'}
+            name={this.state.user.isTutor ? "Posts" : " "}
+            active={activeItem === this.name}
             onClick={this.handleItemClick}
           />
-          <Menu.Menu position='right'>
-            <Menu.Item
-              name='logout'
-              active={activeItem === 'logout'}
-              onClick={this.handleItemClick}
-            />
-          </Menu.Menu>
         </Menu>
 
         <Segment>
-          <img src='/images/wireframe/media-paragraph.png' />
+          <img src={this.state.user.profilePic} />
         </Segment>
       </div>
     )
