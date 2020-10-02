@@ -8,7 +8,8 @@ class SignupForm extends Component {
     email: "",
     password: "",
     passwordConf: "",
-    isTutor: false
+    isTutor: false,
+    profilePic: 'https://api.adorable.io/avatars/200/abott@adorable.png'
   };
 
   handleChange = (e) => {
@@ -42,6 +43,7 @@ class SignupForm extends Component {
       <div>
         <h3>Sign Up</h3>
         <form autoComplete="off" onSubmit={this.handleSubmit}>
+          <input type = "hidden" value = 'https://api.adorable.io/avatars/200/abott@adorable.png' name="profilePic"></input>
           <input
             type="text"
             autoComplete="off"
