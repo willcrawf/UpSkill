@@ -21,6 +21,11 @@ function signup(user) {
     tokenService.setToken(token);
   })
 }
+function click () {
+  const currentState = this.state.active;
+  this.setState({ active: !currentState });
+};
+
 
 function getUser() {
   return tokenService.getUserFromToken();
@@ -49,4 +54,5 @@ export default {
   getUser,
   logout,
   login,
+  click
 };

@@ -38,7 +38,7 @@ class SignupForm extends Component {
   }
 
   render() {
-    const { name, email, password, passwordConf, isTutor } = this.state;
+    const { name, email, password, passwordConf } = this.state;
     return (
       <div>
         <h3>Sign Up</h3>

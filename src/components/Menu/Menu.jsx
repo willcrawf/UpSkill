@@ -1,15 +1,18 @@
 import React, { Component } from 'react'
-import { Menu, Segment } from 'semantic-ui-react'
+import { Menu } from 'semantic-ui-react'
 import authService from "../../services/authService";
 import './Menu.css'
 import AddPP from './AddPP'
   
 export default class MenuEl extends Component {
-  state = { activeItem: 'home', user: authService.getUser()}
+  state = { activeItem: 'home', user: authService.getUser(), active: false}
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+  
+
   render() {
-    const { activeItem } = this.state
+    const { activeItem } = this.state.activeItem
+    
 
     
     
@@ -32,7 +35,7 @@ export default class MenuEl extends Component {
             onClick={this.handleItemClick}
           />
         </Menu>
-        <AddPP user={this.state.user} />
+        <AddPP active = {this.state.active} user={this.state.user} click={this.state.click}/>
       </div>
     )
   }
